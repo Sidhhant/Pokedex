@@ -1,0 +1,13 @@
+<body>
+<h1>Hello Pokemon</h1>
+{%comment%}
+{% for poke in data.results %}
+{{ poke.url }} {{ poke.name }}<br/>
+{% endfor %}<br><br>
+{{ data.results }}
+{% endcomment %}
+<br>
+<br>
+{{ d.name }}
+</body>
+
