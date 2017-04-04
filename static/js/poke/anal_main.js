@@ -1,79 +1,22 @@
-function anal_gr(data) {
-	$("#graphic").html("");
-	var l = data.poke_d.length;
+
+$(document).ready(function(){
 	var datab = []
 	var dataw = []
 	var datah = []
-	
-	for(var i=0;i<l;i++)
-	{
-		var dictb = {
-			"name" : data.poke_d[i].name,
-			"value" : data.poke_d[i].base_experience
-		};
-		datab.push(dictb);
-		var dictw = {
-			"name" : data.poke_d[i].name,
-			"value" : data.poke_d[i].weight
-		};
-		dataw.push(dictw);
-		var dicth = {
-			"name" : data.poke_d[i].name,
-			"value" : data.poke_d[i].height
-		};
-		datah.push(dicth);
-	}
-	//console.log(datab);
-	//console.log(dataw);
-	//console.log(datah);
+	var load = '<div class="ui segment" style="height:300px;">'+
+            '<div class="ui active dimmer">'+
+            '<div class="ui text loader">Loading</div>'+
+            '</div>'+
+            '<p></p>'+
+        '</div>';
 
-	data = datab;
-	/*var data = [{
-                "name": "Apples",
-                "value": 20,
-        },
-            {
-                "name": "Bananas",
-                "value": 12,
-        },
-            {
-                "name": "Grapes",
-                "value": 19,
-        },
-            {
-                "name": "Lemons",
-                "value": 5,
-        },
-            {
-                "name": "Limes",
-                "value": 16,
-        },
-            {
-                "name": "Oranges",
-                "value": 26,
-        },
-            {
-                "name": "ananas",
-                "value": 12,
-        },
-            {
-                "name": "rapes",
-                "value": 19,
-        },
-            {
-                "name": "raes",
-                "value": 19,
-        },
-            {
-                "name": "Pears",
-                "value": 30,
-        }];
-*/
-        //sort bars based on value
+function create_graph(data, x) {
+		$("#graphic").html("");
+	    //sort bars based on value
         data = data.sort(function (a, b) {
             return d3.ascending(a.value, b.value);
         })
-
+        //console.log(data);
         //set up svg using margin conventions - we'll need plenty of room on the left for labels
         var margin = {
             top: 15,
@@ -91,15 +34,41 @@ function anal_gr(data) {
             .append("g")
             .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-        svg.append("text")
-        .attr("x", (width / 2))             
-        .attr("y", 0 + (margin.top / 5))
-        .attr("text-anchor", "middle")  
-        .style("font-size", "16px") 
-        .style("text-decoration", "underline")
-        .style("font-family", "'Courier New', Courier, monospace")
-        .style("fill", "green")  
-        .text("Base Experience");
+            if(x == 1){
+        		svg.append("text")
+        		.attr("x", (width / 2))             
+        		.attr("y", 0 + (margin.top / 5))
+        		.attr("text-anchor", "middle")  
+        		.style("font-size", "16px") 
+        		.style("text-decoration", "underline")
+        		.style("font-family", "'Courier New', Courier, monospace")
+        		.style("fill", "green")  
+        		.text("Base Experience");    	
+            }
+            else if(x==2){
+            	svg.append("text")
+        		.attr("x", (width / 2))             
+        		.attr("y", 0 + (margin.top / 5))
+        		.attr("text-anchor", "middle")  
+        		.style("font-size", "16px") 
+        		.style("text-decoration", "underline")
+        		.style("font-family", "'Courier New', Courier, monospace")
+        		.style("fill", "green")  
+        		.text("Weight");    	
+            }
+            else{
+            	svg.append("text")
+        		.attr("x", (width / 2))             
+        		.attr("y", 0 + (margin.top / 5))
+        		.attr("text-anchor", "middle")  
+        		.style("font-size", "16px") 
+        		.style("text-decoration", "underline")
+        		.style("font-family", "'Courier New', Courier, monospace")
+        		.style("fill", "green")  
+        		.text("Height");    	
+            
+            }
+        
 
 
         var x = d3.scale.linear()
@@ -156,15 +125,55 @@ function anal_gr(data) {
             .text(function (d) {
                 return d.value;
             });
-        
+    
 }
 
 
+function anal_gr(data) {
+	
+	var l = data.poke_d.length;
+	
+	datab.length = 0;
+	dataw.length = 0;
+	datah.length = 0;
+	for(var i=0;i<l;i++)
+	{
+		var dictb = {
+			"name" : data.poke_d[i].name,
+			"value" : data.poke_d[i].base_experience
+		};
+		datab.push(dictb);
+		var dictw = {
+			"name" : data.poke_d[i].name,
+			"value" : data.poke_d[i].weight
+		};
+		dataw.push(dictw);
+		var dicth = {
+			"name" : data.poke_d[i].name,
+			"value" : data.poke_d[i].height
+		};
+		datah.push(dicth);
+	}
 
+	data = datab;
+	create_graph(data);
+    
+}
 
-$(document).ready(function(){
+$(document).on('click', ".be_btn", function (){
+	create_graph(datab, 1);
+});
+$(document).on('click', ".wt_btn", function (){
+	create_graph(dataw, 2);
+});
+$(document).on('click', ".ht_btn", function (){
+	create_graph(datah, 3);
+});
+
+ 	
+	
 	var i = 0;
-	$.ajax({
+		$.ajax({
    		url: 'analytics/',
    		data: {
       		'index': i,
@@ -181,9 +190,11 @@ $(document).ready(function(){
    		type: 'GET'
 		});
 
+	
+
 	$(document).on('click', ".f_anal", function (){
 	//var i = 0;
-	
+	$("#graphic").html(load);
 	$.ajax({
    		url: 'analytics/',
    		data: {
@@ -195,12 +206,36 @@ $(document).ready(function(){
    		success: function(data) {
    			//console.log(data);
    			//console.log(data);
+   			$("#graphic").html("");
    			anal_gr(data);
    			i = data.index;
    		},
    		type: 'GET'
 		});
 	});
-	
+	$(document).on('click', ".b_anal", function (){
+	//var i = 0;
+	if(i>11){
+	$("#graphic").html(load);
+	$.ajax({
+   		url: 'pre_anal/',
+   		data: {
+      		'index': i,
+   		},
+   		error: function() {
+   			alert("Not Working");
+   		},
+   		success: function(data) {
+   			//console.log(data);
+   			//console.log(data);
+   			$("#graphic").html("");
+   			anal_gr(data);
+   			i = data.index;
+   		},
+   		type: 'GET'
+		});
+		}
+	});
+
 });
 

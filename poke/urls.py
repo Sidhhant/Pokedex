@@ -8,4 +8,5 @@ urlpatterns = [
     url(r'^previous/$', views.previous, name='ajax_previous'),
     url(r'^detail/$', views.poke_detail, name='ajax_detail'),
     url(r'^analytics/$', views.analytics, name='analytics'),
+    url(r'^pre_anal/$', views.pre_analytics, name='pre_anal'),
 ]
