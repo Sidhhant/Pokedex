@@ -101,8 +101,37 @@ def poke_detail(request):
 
 def analytics(request):
 	if request.method == "GET":
-		return render(request,'poke/analytics.html')
-	else:
-		raise Http404('No GET in analytics')
+		try:
+ 			index = request.GET['index']
+ 			index = int(index)
+ 			#print index
+ 		except Exception as e:
+ 			raise e
+ 		try:
+ 			response = requests.get("http://pokeapi.co/api/v2/pokemon/?limit=10&offset="+str(index))
+ 			response = response.json()
+		except Exception as e:
+ 			raise e
+ 		poke_d = []
+ 		for pokemon in response['results']:
+ 			index = index + 1
+ 			res = requests.get(str(pokemon['url']))
+ 			res = res.json()
+ 			dict = {
+ 			'name':res['name'],
+ 			'base_experience':res['base_experience'],
+ 			'height':res['height'],
+ 			'weight':res['weight'],
+ 			}
+ 			poke_d.append(dict);
+
+ 		print poke_d
+ 		data = {
+ 		'index':index,
+ 		'poke_d':poke_d,
+ 		}
+ 		return JsonResponse(data)
+ 	else:
+ 		raise Http404("No Get Request in analytics")
 
 

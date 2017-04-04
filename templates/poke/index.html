@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block main %}
+<div class="Pokedex">
   <div class="ui grid">
   <div class="seven wide column"></div>
   <div class="column">
@@ -65,9 +66,14 @@
     </div>
   </div>
 </div>
+</div>
 <script type="text/javascript">
   var index = "{{index}}"
   </script>
+
+  <div class="analytics" style="display: none;">
+    {% include "poke/analytics.html" %}
+  </div>
 {% endblock %}
 
 

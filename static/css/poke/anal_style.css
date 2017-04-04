@@ -21,6 +21,9 @@ body {
 }
 
 #graphic {
+    background-image: url("/static/images/poke/chart.jpg");
     border: solid black;
     border-radius: 17px;
+    height: 92%;
+    margin: 0 4px 0 4px;
 }

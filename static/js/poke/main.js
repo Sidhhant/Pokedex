@@ -134,3 +134,14 @@ $(document).on('click', ".ui.eleven.wide.column.horizontal.list.pokeDisp>.item",
 
 		$('.ui.modal').modal('show');
 	});
+
+
+$(document).on('click', ".f_tab", function (){
+    $(".Pokedex").show();
+    $(".analytics").hide();
+});
+
+$(document).on('click', ".s_tab", function (){
+    $(".Pokedex").hide();
+    $(".analytics").show();
+});
