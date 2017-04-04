@@ -1,0 +1,26 @@
+body {
+    font-family: "Arial", sans-serif;
+}
+        
+.bar {
+    fill: #5f89ad;
+}
+        
+.axis {
+    font-size: 13px;
+}
+        
+.axis path,
+.axis line {
+    fill: none;
+    display: none;
+}
+        
+.label {
+    font-size: 13px;
+}
+
+#graphic {
+    border: solid black;
+    border-radius: 17px;
+}

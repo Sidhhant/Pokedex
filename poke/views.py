@@ -99,3 +99,10 @@ def poke_detail(request):
 		raise Http404("No Get in poke_detail")
 
 
+def analytics(request):
+	if request.method == "GET":
+		return render(request,'poke/analytics.html')
+	else:
+		raise Http404('No GET in analytics')
+
+
