@@ -1,0 +1,31 @@
+
+.ui.avatar.image.sprite {
+    //background: url(/static/images/poke/1.png) no-repeat;
+    width: 205px;
+    height: 187px;
+    /* background-size: 111%; */
+    background-size: 100%;
+    display: block;
+    border: solid #667312;
+    border-radius: 13px 13px 0px 0px;
+}
+
+
+.item > .content{
+	background-color: green;
+    border-radius: 0px 0px 8px 8px;
+    width: 100%;
+}
+
+.p_name{
+	font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 6px;
+    /* background-color: green; */
+    /* display: block; */
+    border-radius: 4px;
+}
+
+.ui.eleven.wide.column.horizontal.list.pokeDisp>.item:hover{
+	cursor: pointer;
+}

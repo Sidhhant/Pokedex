@@ -1,13 +1,28 @@
-<body>
-<h1>Hello Pokemon</h1>
-{%comment%}
-{% for poke in data.results %}
-{{ poke.url }} {{ poke.name }}<br/>
-{% endfor %}<br><br>
-{{ data.results }}
-{% endcomment %}
-<br>
-<br>
-{{ d.name }}
-</body>
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
 
+  <title></title>
+  <meta name="description" content="The Pokedex">
+  <meta name="author" content="Pokedex">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+  <link rel="stylesheet" href="/static/css/poke/style.css">
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+   <script type="text/javascript" src="{% static 'js/poke/main.js' %}" ></script>
+</head>
+
+<body>
+   <div class="ui two item menu">
+    <a class="active item">Pokedex</a>
+    <a class="item">Analytics</a>
+  </div> 
+ {% block main %}{% endblock %}
+ 
+</body>
+</html>
