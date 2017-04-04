@@ -3,18 +3,12 @@
 
 {% block main %}
 <div class="Pokedex">
-  <div class="ui grid">
-  <div class="seven wide column"></div>
-  <div class="column">
-    <div class="ui search" >
-      <input class="prompt" type="text" placeholder="Search Pokemon ...">
-      <div class="results"></div>
-    </div>
-  </div>
-</div>
+  
+
+
 
   <div class="ui one column stackable center aligned page grid">
-      <div class="ui eleven wide column horizontal list pokeDisp">
+      <div class="ui fourteen wide column horizontal list pokeDisp">
       {% for key,value in poke_dict.items %}
         <div class="item">
           <img class="ui avatar image sprite" src="/static/images/poke/{{key}}.png" style="display: block;" id="img_{{ key }}">

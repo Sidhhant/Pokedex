@@ -26,6 +26,6 @@
     border-radius: 4px;
 }
 
-.ui.eleven.wide.column.horizontal.list.pokeDisp>.item:hover{
+.ui.fourteen.wide.column.horizontal.list.pokeDisp>.item:hover{
 	cursor: pointer;
 }

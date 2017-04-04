@@ -88,7 +88,7 @@ $(document).ready(function(){
 		});
     });
 
-    $(".ui.eleven.wide.column.horizontal.list.pokeDisp>.item").on('click',function(){
+    $(".ui.fourteen.wide.column.horizontal.list.pokeDisp>.item").on('click',function(){
     	var key = $(this).find(">img").attr('id');
     	key = key.split("_");
     	//alert(key[1]);
@@ -112,7 +112,7 @@ $(document).ready(function(){
 	});
 });
 
-$(document).on('click', ".ui.eleven.wide.column.horizontal.list.pokeDisp>.item", function (){
+$(document).on('click', ".ui.fourteen.wide.column.horizontal.list.pokeDisp>.item", function (){
     	var key = $(this).find(">img").attr('id');
     	key = key.split("_");
     	//alert(key[1]);
