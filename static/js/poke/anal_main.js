@@ -1,4 +1,5 @@
 function anal_gr(data) {
+	$("#graphic").html("");
 	var l = data.poke_d.length;
 	var datab = []
 	var dataw = []
@@ -22,9 +23,9 @@ function anal_gr(data) {
 		};
 		datah.push(dicth);
 	}
-	console.log(datab);
-	console.log(dataw);
-	console.log(datah);
+	//console.log(datab);
+	//console.log(dataw);
+	//console.log(datah);
 
 	data = datab;
 	/*var data = [{
@@ -159,12 +160,14 @@ function anal_gr(data) {
 }
 
 
-$(document).on('click', ".s_tab", function (){
-	var index = 0;
+
+
+$(document).ready(function(){
+	var i = 0;
 	$.ajax({
    		url: 'analytics/',
    		data: {
-      		'index': index,
+      		'index': i,
    		},
    		error: function() {
    			alert("Not Working");
@@ -173,7 +176,31 @@ $(document).on('click', ".s_tab", function (){
    			//console.log(data);
    			//console.log(data);
    			anal_gr(data);
+   			i = data.index;
    		},
    		type: 'GET'
 		});
+
+	$(document).on('click', ".f_anal", function (){
+	//var i = 0;
+	
+	$.ajax({
+   		url: 'analytics/',
+   		data: {
+      		'index': i,
+   		},
+   		error: function() {
+   			alert("Not Working");
+   		},
+   		success: function(data) {
+   			//console.log(data);
+   			//console.log(data);
+   			anal_gr(data);
+   			i = data.index;
+   		},
+   		type: 'GET'
+		});
+	});
+	
 });
+

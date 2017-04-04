@@ -125,7 +125,7 @@ def analytics(request):
  			}
  			poke_d.append(dict);
 
- 		print poke_d
+ 		#print poke_d
  		data = {
  		'index':index,
  		'poke_d':poke_d,
