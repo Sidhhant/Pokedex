@@ -19,7 +19,7 @@ A  Pokedex App based on Pythhon(Django 1.10) and Jquery.
 
 ###Resources
 
-Django (https://www.djangoproject.com/)
-jQuery (https://jquery.com/)
-Semantic UI (https://semantic-ui.com/)
+Django (https://www.djangoproject.com/)<br />
+jQuery (https://jquery.com/)<br />
+Semantic UI (https://semantic-ui.com/)<br />
 HTML,CSS (https://www.w3schools.com/)
