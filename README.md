@@ -1,5 +1,7 @@
 # Pokedex
 A  Pokedex App based on Pythhon(Django 1.10) and Jquery.
+Mainly works with ajax call.
+Also have bar charts implemented for comparing pokemons based on their weight,experience and height.
 ## Installing
 1. Clone the repository on your PC `git clone https://github.com/Sidhhant/Pokedex.git`
 1. Go to Pokedex folder `cd Pokedex`
