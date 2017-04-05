@@ -1,5 +1,5 @@
 # Pokedex
-A  Pokedex App based on Pythhon(Django 1.10) and Jquery.<br/>
+A  Pokedex App based on Python(Django 1.10) and Jquery.<br/>
 Mainly works with ajax call.<br/>
 Also have bar charts implemented for comparing pokemons based on their weight,experience and height. <br/>
 Used d3js for ploting graphs
