@@ -12,4 +12,4 @@ A  Pokedex App based on Pythhon(Django 1.10) and Jquery.
 * Go to `http://127.0.0.1:8000/` in your browser.
 
 ## Screenshots
-![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
+![Alt text](/screenshots/screen1?raw=true "Optional Title")
